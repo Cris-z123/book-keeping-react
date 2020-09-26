@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Nav from './components/Nav'
 
 
 import {
   HashRouter as Router,
   Switch,
   Route,
-  Link, Redirect
+  Redirect
 } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -18,35 +19,11 @@ const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
 `;
-const Nav = styled.nav`
-  border: 1px solid blue;
-  > ul{
-    display: flex;
-    > li {
-      width: 33.333333%;
-      text-align: center;
-    }
-  }
-`;
 
 function App() {
   return (
     <Router>
       <Wrapper>
-        <Nav>
-          <ul>
-            <li>
-              <Link to="/">Money</Link>
-            </li>
-            <li>
-              <Link to="/tags">Tags</Link>
-            </li>
-            <li>
-              <Link to="/statistics">Statistics</Link>
-            </li>
-          </ul>
-        </Nav>
-
         <Main>
           <Switch>
             <Route path="/tags">
@@ -64,21 +41,7 @@ function App() {
             </Route>
           </Switch>
         </Main>
-        <Switch>
-          <Route path="/tags">
-            <Tags />
-          </Route>
-          <Route path="/statistics">
-            <Statistics />
-          </Route>
-          <Route path="/money">
-            <Money />
-          </Route>
-          <Redirect exact from="/" to="/money" />
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
+        <Nav />
       </Wrapper>
     </Router>
   );
