@@ -91,7 +91,11 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/webpack-env": "^1.15.3",
+    "svg-sprite-loader": "^5.0.0",
+    "svgo-loader": "^2.2.1"
+  },
   "jest": {
     "roots": [
       "<rootDir>/src"
