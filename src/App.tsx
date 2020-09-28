@@ -1,8 +1,9 @@
 import React from 'react';
-import Money from './views/Money'
-import Tags from './views/Tags'
-import Statistics from './views/Statistics'
-import NoMatch from './views/NoMatch'
+import Money from './views/Money';
+import Tags from './views/Tags';
+import Tag from './views/Tag';
+import Statistics from './views/Statistics';
+import NoMatch from './views/NoMatch';
 
 
 import {
@@ -17,13 +18,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags">
+        <Route path="/tags" exact> {/* 取消模糊匹配 */}
           <Tags />
         </Route>
-        <Route path="/statistics">
+        <Route path="/tags/:tag" exact>
+          <Tag />
+        </Route>
+        <Route path="/statistics" exact>
           <Statistics />
         </Route>
-        <Route path="/money">
+        <Route path="/money" exact>
           <Money />
         </Route>
         <Redirect exact from="/" to="/money" />

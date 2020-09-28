@@ -1,4 +1,6 @@
 import React from 'react';
+
+//node.js获取icons文件夹内所有文件
 let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext)
 try {
     importAll(require.context('icons', true, /\.svg$/))
