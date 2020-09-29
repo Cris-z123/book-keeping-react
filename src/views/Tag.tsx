@@ -13,7 +13,19 @@ const Topbar = styled.header`
     align-items: center;
     line-height: 20px;
     padding: 14px;
+    background: #66CCCC;
+`
+const Space = styled.span`
+    width: 1em;
+    height: 1em;
+`
+const InputWrapper = styled.div`
     background: white;
+    padding: 0 16px;
+    margin-top: 16px;
+`
+const IconWrapper = styled.div`
+    transform: rotate(180deg);
 `
 
 const Center = styled.div`
@@ -35,10 +47,18 @@ const Tag: React.FC = () => {
     return (
         <Layout>
             <Topbar>
-                <Icon name="left" />
+                <IconWrapper>
+                    <Icon name="right" />
+                </IconWrapper>
                 <span>编辑标签</span>
+                <Space></Space>
             </Topbar>
-            <Input label="标签名" type="text" placeholder="标签名" />
+            <InputWrapper>
+                <Input label="标签名" 
+                    type="text" 
+                    placeholder="标签名"
+                    value={tag.name} />
+            </InputWrapper>
             <Center>
                 <Button>删除标签</Button>
             </Center>
