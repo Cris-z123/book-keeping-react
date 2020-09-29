@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 import Icon from '../components/Icons';
 import { Link } from 'react-router-dom';
+import {useTags} from 'useTags';
 
 
 const TagList = styled.ol`
@@ -36,15 +37,15 @@ const Center = styled.div`
 `
 
 function Tags() {
-  const [tags] = useState<string[]>(['衣', '食', '住', '行']);
+  const {tags} = useTags();
   
   return (
     <Layout>
       <TagList>
         {tags.map(tag =>
-          <li key ={tag}>
-            <Link to={'/tag/' + tag}>
-              <span>{tag}</span>
+          <li key ={tag.id}>
+            <Link to={'/tag/' + tag.id}>
+              <span>{tag.name}</span> 
               <Icon name="right" />
             </Link>
           </li>

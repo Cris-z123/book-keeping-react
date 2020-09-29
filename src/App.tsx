@@ -1,7 +1,7 @@
 import React from 'react';
 import Money from './views/Money';
 import Tags from './views/Tags';
-import Tag from './views/Tag';
+import {Tag} from './views/Tag';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/tags" exact> {/* 取消模糊匹配 */}
           <Tags />
         </Route>
-        <Route path="/tags/:tag" exact>
+        <Route path="/tags/:id" exact>
           <Tag />
         </Route>
         <Route path="/statistics" exact>
