@@ -3,7 +3,7 @@ import Icon from 'components/Icons';
 import Input from 'components/Input';
 import Layout from 'components/Layout';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTags } from 'useTags';
 
@@ -42,13 +42,17 @@ type Params = {
 const Tag: React.FC = () => {
     const {findTag, updateTag, deleteTag} = useTags();
     let {id: idString} = useParams<Params>();
-    const tag = findTag(parseInt(idString))
+    const tag = findTag(parseInt(idString));
+    const history = useHistory();
+    const onClickBack = () => {
+        history.goBack();
+    }
 
     return (
         <Layout>
             <Topbar>
                 <IconWrapper>
-                    <Icon name="right" />
+                    <Icon name="right" onClick={onClickBack} />
                 </IconWrapper>
                 <span>编辑标签</span>
                 <Space></Space>
