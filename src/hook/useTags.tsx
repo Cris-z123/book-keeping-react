@@ -30,7 +30,7 @@ const useTags = () => {
             }
         }
         return result;
-    }
+    };
     const updateTag = (id: number, {name}: {name: string}) => {
         //获取要修改的tag索引
         const index = findTagIndex(id);
@@ -38,17 +38,21 @@ const useTags = () => {
         const tagsClone = JSON.parse(JSON.stringify(tags));
         tagsClone.splice(index, 1, {id, name: name});
         setTags(tagsClone);
-    }
+    };
     const deleteTag = (id: number) => {
         setTags(tags.filter(tag => tag.id !== id));
-    }
+    };
     const addTag = () => {
         const tagName = window.prompt('新增标签的名称为:');
         if(tagName !== null && tagName !== '') {
           setTags([...tags, {id: createId(), name: tagName}])
         }
-      };
-    return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag};
+    };
+    const getName = (id: number) => {
+        const tag = tags.filter(t => t.id === id)[0];
+        return tag ? tag.name : '';
+    }
+    return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag, getName};
 }
 
 export {useTags};

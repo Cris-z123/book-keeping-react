@@ -13,6 +13,14 @@ type newRecordItem = Omit<RecordItem, 'createdAt'>
 export const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
 
+    useEffect( () => {
+        setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'))
+    }, []);
+
+    useUpdate(() => {
+        window.localStorage.setItem('records', JSON.stringify(records))
+    }, [records]);
+
     const addRecord = (newRecord: newRecordItem) => {
         if(newRecord.amount <= 0) {
             alert('记账不能为零')
@@ -22,14 +30,6 @@ export const useRecords = () => {
         setRecords([...records, record]);
         return true;
     };
-
-    useEffect( () => {
-        setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'))
-    }, []);
-
-    useUpdate(() => {
-        window.localStorage.setItem('record', JSON.stringify(records))
-    }, [records]);
 
     return {records, addRecord};
 };
