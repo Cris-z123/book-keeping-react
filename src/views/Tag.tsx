@@ -5,7 +5,7 @@ import Layout from 'components/Layout';
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useTags } from 'useTags';
+import { useTags } from 'hook/useTags';
 
 const Topbar = styled.header`
     display: flex;

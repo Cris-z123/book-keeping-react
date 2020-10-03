@@ -92,28 +92,33 @@ const NumberPadSection: React.FC<Props> = (props) => {
             case '7':
             case '8':
             case '9':
-                if(output === '0') {
-                    setOutput(text);
-                } else {
-                    setOutput(output + text);
-                }
-                break;
+              if(output === '0') {
+                  setOutput(text);
+              } else {
+                  setOutput(output + text);
+              }
+              break;
             case '.':
-                if(output.indexOf('.') >= 0) {return;}
-                setOutput(output + '.');
-                break;
+              if(output.indexOf('.') >= 0) {return;}
+              setOutput(output + '.');
+              break;
             case '删除':
-                if(output.length === 1) {
-                    setOutput('')
-                } else {
-                    setOutput(output.slice(0, -1))
-                }
-                break;
+              if(output.length === 1) {
+                  setOutput('')
+              } else {
+                  setOutput(output.slice(0, -1))
+              }
+              break;
             case '清空':
-                setOutput('');
-                break;
+              setOutput('');
+              break;
             case '确定':
-                break;
+              if(props.onOk) {
+                props.onOk()
+                return;
+              }
+              break;
+
         }
     }
 
