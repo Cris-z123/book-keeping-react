@@ -32,8 +32,8 @@ function Statistics() {
   const {getName} = useTags();
   const hash: {[key: string]: RecordItem[]} = {}
   const selectedRecords = records.filter(r => r.category === category);
-  // eslint-disable-next-line array-callback-return
-  selectedRecords.map(r => {
+  
+  selectedRecords.forEach(r => {
     const key = dayjs(r.createdAt).format('YYYY年MM月DD日')
     if(!(key in hash)) {
       hash[key] = []

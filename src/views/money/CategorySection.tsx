@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 
 const Wrapper = styled.section`
   font-size: 24px;
+  background:#99CCFF;
   > ul{
     display:flex;
-    background:#c4c4c4;
     > li {
-      width: 50%; 
+      width: 50%;
+      color: #ffffff;
       text-align:center;
       padding: 16px 0;
       position:relative;

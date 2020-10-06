@@ -5,23 +5,26 @@ import {useTags} from 'hook/useTags';
 const Wrapper = styled.section`
   background: #FFFFFF; 
   padding: 12px 16px;
-  flex-grow: 1;
   display:flex; 
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
   flex-direction: column;
   justify-content: center; 
   align-items: flex-start;
   > ol { 
     margin: 0 -12px;
     > li{
-       background: #D9D9D9; 
-       border-radius: 16px;
-       display:inline-block; 
-       padding: 8px 20px; 
-       font-size: 14px; 
-       margin: 8px 12px;
-       &.selected {
-         background: #66CCCC;
-       }
+      background: #FFFFFF; 
+      border-radius: 16px;
+      display:inline-block; 
+      padding: 8px 20px; 
+      font-size: 14px; 
+      margin: 8px 12px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+      &.selected {
+        background: #66CCCC;
+      }
     }
   }
   > button{

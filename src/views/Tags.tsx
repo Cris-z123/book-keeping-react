@@ -23,6 +23,17 @@ const TagList = styled.ol`
   }
 `
 
+const Title = styled.div`
+  font-size: 24px;
+  color: #ffffff;
+  display:flex;
+  background:#99CCFF;
+  width: 100%; 
+  text-align:center;
+  justify-content: center;
+  padding: 16px 0;
+`
+
 const Center = styled.div`
   display: flex;
   justify-content: center;
@@ -35,6 +46,7 @@ function Tags() {
   
   return (
     <Layout>
+      <Title>标签管理</Title>
       <TagList>
         {tags.map(tag =>
           <li key ={tag.id}>
