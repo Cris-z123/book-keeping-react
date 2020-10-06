@@ -15,12 +15,13 @@ const Wrapper = styled.section`
       &.selected::after{
         content: '';
         display:block; 
-        height: 3px;
-        background:#333;
+        height: 4px;
+        background:#336699;
+        border-radius: 12px;
         position:absolute;
         bottom:0;
-        width: 100%;
-        left: 0;
+        width: 80%;
+        left: 10%;
       }
     }
   }

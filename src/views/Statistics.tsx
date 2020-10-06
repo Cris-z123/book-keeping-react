@@ -14,29 +14,31 @@ const Item = styled.div`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
+  border-bottom: 1px solid #ccccff;
   > .note {
     margin-right: auto;
     margin-left: 16px;
     color: #999;
   }
 `
-const Header = styled.h3`
+const Header = styled.p`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
+  box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.25), inset 0 5px 5px -5px rgba(0,0,0,0.25);
 `
 
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
   const {records} = useRecords();
   const {getName} = useTags();
-  const hash: {[key: string]: RecordItem[]} = {}
+  const hash: {[K: string]: RecordItem[]} = {}
   const selectedRecords = records.filter(r => r.category === category);
-  
+
   selectedRecords.forEach(r => {
     const key = dayjs(r.createdAt).format('YYYY年MM月DD日')
     if(!(key in hash)) {
-      hash[key] = []
+      hash[key] = [];
     }
     hash[key].push(r)
   })
@@ -68,7 +70,8 @@ function Statistics() {
                     .reduce((result, span, index, array) => 
                       result.concat(index < array.length - 1 ? [span, '，'] : [span]), []as ReactNode[])}
                 </div>
-                {r.note && <div className="note">{r.note}
+                {r.note && <div className="note">
+                  {r.note}
                 </div>}
                 <div className="amount">
                   ￥{r.amount}

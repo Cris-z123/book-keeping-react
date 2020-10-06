@@ -23,15 +23,15 @@ const TagList = styled.ol`
   }
 `
 
-const Title = styled.div`
-  font-size: 24px;
-  color: #ffffff;
-  display:flex;
-  background:#99CCFF;
-  width: 100%; 
-  text-align:center;
-  justify-content: center;
-  padding: 16px 0;
+const Topbar = styled.header`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 28px;
+    padding: 16px;
+    background: #99CCFF;
+    color: #ffffff;
 `
 
 const Center = styled.div`
@@ -46,7 +46,7 @@ function Tags() {
   
   return (
     <Layout>
-      <Title>标签管理</Title>
+      <Topbar>编辑标签</Topbar>
       <TagList>
         {tags.map(tag =>
           <li key ={tag.id}>

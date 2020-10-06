@@ -11,9 +11,11 @@ const Topbar = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    line-height: 20px;
-    padding: 14px;
-    background: #66CCCC;
+    font-size: 20px;
+    line-height: 28px;
+    padding: 16px;
+    background: #99CCFF;
+    color: #ffffff;
 `
 const Space = styled.span`
     width: 1em;
