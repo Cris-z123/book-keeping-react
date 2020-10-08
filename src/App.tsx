@@ -4,14 +4,13 @@ import Tags from './views/Tags';
 import {Tag} from './views/Tag';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
-
-
 import {
   HashRouter as Router,
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
+
 
 
 function App() {
