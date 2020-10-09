@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   flex-shrink: 1;
   overflow: auto;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: flex-start;
   > ol { 
     margin: 0 -12px;
@@ -20,7 +20,7 @@ const Wrapper = styled.section`
       display:inline-block; 
       padding: 8px 20px; 
       font-size: 14px; 
-      margin: 8px 12px;
+      margin: 8px 10px;
       box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
       &.selected {
         background: #66CCCC;
