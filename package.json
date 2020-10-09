@@ -1,6 +1,7 @@
 {
   "name": "money-react",
   "version": "0.1.0",
+  "homepage": "https://rookie996-object.github.io/book-keeping-react-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
