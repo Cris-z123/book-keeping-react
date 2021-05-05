@@ -3,7 +3,7 @@ import { useUpdate } from "./useUpdate";
 
 export type RecordItem = {
     tagIds: number[]
-    note:　string
+    note: string
     category: '+' | '-'
     amount: number
     createdAt: string
@@ -13,7 +13,7 @@ type newRecordItem = Omit<RecordItem, 'createdAt'>
 export const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
 
-    useEffect( () => {
+    useEffect(() => {
         setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'))
     }, []);
 
@@ -22,14 +22,14 @@ export const useRecords = () => {
     }, records);
 
     const addRecord = (newRecord: newRecordItem) => {
-        if(newRecord.amount <= 0) {
+        if (newRecord.amount <= 0) {
             alert('记账不能为零')
             return false;
         }
-        const record = {...newRecord, createdAt: (new Date()).toISOString()};
+        const record = { ...newRecord, createdAt: (new Date()).toISOString() };
         setRecords([...records, record]);
         return true;
     };
 
-    return {records, addRecord};
+    return { records, addRecord };
 };

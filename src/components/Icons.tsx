@@ -14,7 +14,7 @@ type Props = {
 } & React.SVGAttributes<SVGElement>
 
 const Icon = (props: Props) => {
-    const {name, children, className, ...rest} = props;
+    const { name, children, className, ...rest } = props;
     return (
         <svg className={classnames('icon', className)} {...rest}>
             <use xlinkHref={'#' + props.name} />
