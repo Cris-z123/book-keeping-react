@@ -22,23 +22,13 @@ const Wrapper = styled.section`
       font-size: 18px; 
       float: left; 
       width: 20%; 
-      height: 56px; 
+      height: 46px; 
       border: none;
-      margin: 6px;
+      margin: 8px 12px 0px 4px;
       &.ok{ 
-        width: 46%;
-      }
-      &.zero{ 
-        width: 26%; 
-      }
-      &.delete {
-        width: 26%;
-      }
-      &.empty {
-        width: 46%;
+        background: #99CCFF;
       }
       &.dot {
-        width: 26%;
         font-size: 30px;
         font-weight: bold;
       }
@@ -103,15 +93,34 @@ const NumberPadSection: React.FC<Props> = (props) => {
               if(output.indexOf('.') >= 0) {return;}
               setOutput(output + '.');
               break;
+            case '+':
+              setOutput(output + '+');
+              break;
+            case '-':
+              setOutput(output + '-');
+              break;
+            case '=':
+              let temp1: number = 0
+              let temp2: number = 0
+              let temp3: number = 0
+              if(output.indexOf('+') >=0) {
+                temp1 = parseFloat(output.slice(0, output.indexOf('+')))
+                temp2 = parseFloat(output.slice(output.indexOf('+') + 1, output.length))
+                temp3 = temp1 + temp2
+                setOutput(temp3.toString())
+              } else if(output.indexOf('-') >= 0) {
+                temp1 = parseFloat(output.slice(0, output.indexOf('-')))
+                temp2 = parseFloat(output.slice(output.indexOf('-') + 1, output.length))
+                temp3 = temp1 - temp2
+                setOutput(temp3.toString())
+              }
+              break;
             case '删除':
               if(output.length === 1) {
                   setOutput('')
               } else {
                   setOutput(output.slice(0, -1))
               }
-              break;
-            case '清空':
-              setOutput('');
               break;
             case '确定':
               if(props.onOk) {
@@ -130,20 +139,25 @@ const NumberPadSection: React.FC<Props> = (props) => {
         </div>
         <div className="pad clearfix"
             onClick={onClickButtonWrapper}>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button className="delete">删除</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button className="dot">.</button>
           <button>7</button>
           <button>8</button>
           <button>9</button>
-          <button className="zero">0</button>
-          <button className="empty">清空</button>
-          <button className="ok">确定</button>
+          <button>今天</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>+</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>-</button>
+          <button className="dot">.</button>
+          <button>0</button>
+          <button>删除</button>
+          { output.indexOf('+') >= 0 || output.indexOf('-') >= 0 
+            ? <button className="ok">=</button>
+            : <button className="ok">确定</button>
+          }
         </div>
       </Wrapper>
     )
