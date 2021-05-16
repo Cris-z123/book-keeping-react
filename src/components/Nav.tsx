@@ -17,7 +17,7 @@ box-shadow: 0 0 3px rgba(0, 0, 0, .25);
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 10px 0;
+      padding: 4px 0;
       .icon {
       width: 24px;
       height: 24px;

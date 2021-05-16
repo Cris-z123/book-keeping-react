@@ -29,7 +29,7 @@ const Header = styled.p`
 `
 
 function Statistics() {
-  const [category, setCategory] = useState<'-' | '+'>('-');
+  const [category, setCategory] = useState<'IN' | 'OUT'>('IN');
   const {records} = useRecords();
   const {getName} = useTags();
   const hash: {[K: string]: RecordItem[]} = {}
