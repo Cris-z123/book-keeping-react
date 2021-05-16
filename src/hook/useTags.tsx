@@ -4,15 +4,37 @@ import { createId } from 'lib/createId';
 
 //封装自定义Hook
 const useTags = () => {
-    const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
+    const [tags, setTags] = useState<{ id: number, name: string, billType: 'IN'|'OUT', iconName: string }[]>([]);
     useEffect(() => {
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
         if (localTags.length === 0) {
             localTags = [
-                { id: createId(), name: '服饰' },
-                { id: createId(), name: '餐饮' },
-                { id: createId(), name: '住房' },
-                { id: createId(), name: '交通' }
+                { id: createId(), name: '服饰装扮', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '餐饮美食', billType: 'OUT', iconName:''  },
+                { id: createId(), name: '日用百货', billType: 'OUT', iconName:''  },
+                { id: createId(), name: '家居家装', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '数码电器', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '运动户外', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '美容美发', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '母婴亲子', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '爱宠养宠', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '爱车养车', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '住房物业', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '酒店旅游', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '文化休闲', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '教育培训', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '医疗健康', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '生活服务', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '公共服务', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '公益捐赠', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '投资理财', billType: 'IN', iconName:'' },
+                { id: createId(), name: '保险费用', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '信用借还', billType: 'IN', iconName:'' },
+                { id: createId(), name: '充值缴费', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '工资收入', billType: 'IN', iconName:'' },
+                { id: createId(), name: '转账红包', billType: 'IN', iconName:'' },
+                { id: createId(), name: '交通出行', billType: 'OUT', iconName:'' },
+                { id: createId(), name: '人情往来', billType: 'OUT', iconName:'' },
             ]
         }
         setTags(localTags);
@@ -42,17 +64,11 @@ const useTags = () => {
     const deleteTag = (id: number) => {
         setTags(tags.filter(tag => tag.id !== id));
     };
-    const addTag = () => {
-        const tagName = window.prompt('新增标签的名称为:');
-        if (tagName !== null && tagName !== '') {
-            setTags([...tags, { id: createId(), name: tagName }])
-        }
-    };
     const getName = (id: number) => {
         const tag = tags.filter(t => t.id === id)[0];
         return tag ? tag.name : '';
     }
-    return { tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag, getName };
+    return { tags, setTags, findTag, updateTag, findTagIndex, deleteTag, getName };
 }
 
 export { useTags };

@@ -1,41 +1,41 @@
 import styled from 'styled-components';
 import React from 'react';
 import {useTags} from 'hook/useTags';
+import Icon from '../../components/Icons';
 
 const Wrapper = styled.section`
   background: #FFFFFF; 
   padding: 12px 16px;
-  display:flex; 
+  display: flex; 
   flex-grow: 1;
   flex-shrink: 1;
   overflow: auto;
   flex-direction: column;
   justify-content: space-between; 
   align-items: flex-start;
-  > ol { 
-    margin: 0 -12px;
+  > ol {
     > li{
       background: #FFFFFF; 
-      border-radius: 16px;
+      border-radius: 14px;
       display:inline-block; 
-      padding: 8px 20px; 
-      font-size: 14px; 
-      margin: 8px 10px;
-      box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+      padding: 10px; 
+      font-size: 12px;
+      color: #004080;
+      margin: 4px 8px;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 255, .2);
       &.selected {
-        background: #66CCCC;
+        background: linear-gradient(90deg, #ABDCFF, #0396FF );
       }
     }
   }
-  > button{
-    background:none; 
-    border: none; 
-    padding: 2px 4px;
-    border-bottom: 1px solid #333; 
-    color: #666;
-    margin-top: 8px;
-  }
 `;
+
+const TagWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`
 
 type Props = {
   value: number[];
@@ -43,7 +43,7 @@ type Props = {
 }
 
 const TagsSection: React.FC<Props> = (props) => {
-  const {tags, addTag} = useTags();
+  const { tags } = useTags();
   const selectedTagIds = props.value
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);
@@ -64,11 +64,14 @@ const TagsSection: React.FC<Props> = (props) => {
                   () => {onToggleTag(tag.id);}
                 } 
                   className={getClass(tag.id)
-                }>{tag.name}
+                }>
+                  <TagWrapper>
+                      <Icon name={tag.iconName} />
+                      <span>{tag.name}</span>
+                  </TagWrapper>
             </li>
           )}
         </ol>
-        <button onClick={addTag}>新增标签</button>
     </Wrapper>
   );
 };

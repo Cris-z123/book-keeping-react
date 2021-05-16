@@ -7,7 +7,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTags } from 'hook/useTags';
 
-const Topbar = styled.header`
+const TopBar = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,13 +52,13 @@ const Tag: React.FC = () => {
 
     return (
         <Layout>
-            <Topbar>
+            <TopBar>
                 <IconWrapper>
                     <Icon name="right" onClick={onClickBack} />
                 </IconWrapper>
                 <span>编辑标签</span>
                 <Space></Space>
-            </Topbar>
+            </TopBar>
             {tag ? <div>
                 <InputWrapper>
                     <Input label="标签名" 

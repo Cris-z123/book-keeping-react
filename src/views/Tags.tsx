@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Icon from '../components/Icons';
 import { Link } from 'react-router-dom';
 import { useTags } from 'hook/useTags';
-import Button from 'components/Button';
 
 
 const TagList = styled.ol`
@@ -23,7 +22,7 @@ const TagList = styled.ol`
   }
 `
 
-const Topbar = styled.header`
+const TopBar = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,11 +41,11 @@ const Center = styled.div`
 `
 
 function Tags() {
-  const {tags, addTag} = useTags();
+  const { tags } = useTags();
   
   return (
     <Layout>
-      <Topbar>编辑标签</Topbar>
+      <TopBar>编辑标签</TopBar>
       <TagList>
         {tags.map(tag =>
           <li key ={tag.id}>
@@ -57,9 +56,7 @@ function Tags() {
           </li>
         )}
       </TagList>
-      <Center>
-        <Button onClick={addTag}>新增标签</Button>
-      </Center>
+      <Center />
     </Layout>
   )
 }

@@ -4,7 +4,7 @@ import { useUpdate } from "./useUpdate";
 export type RecordItem = {
     tagIds: number[]
     note: string
-    category: '+' | '-'
+    category: 'IN' | 'OUT'
     amount: number
     createdAt: string
 }
