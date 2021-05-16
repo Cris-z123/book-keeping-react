@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
+let DatePicker:any  = require('react-mobile-datepicker');
 
 const Wrapper = styled.section`
   display:flex;
@@ -20,7 +21,8 @@ const Wrapper = styled.section`
     align-items: center;
     > button{
       font-size: 18px; 
-      float: left; 
+      float: left;
+      color: #004080;
       width: 20%; 
       height: 46px; 
       border: none;
@@ -115,6 +117,9 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 setOutput(temp3.toString())
               }
               break;
+            case '今天':
+              console.log('日期选择')
+            break;
             case '删除':
               if(output.length === 1) {
                   setOutput('')
@@ -142,7 +147,10 @@ const NumberPadSection: React.FC<Props> = (props) => {
           <button>7</button>
           <button>8</button>
           <button>9</button>
-          <button>今天</button>
+          <button>今天
+            <DatePicker
+            ></DatePicker>
+          </button>
           <button>4</button>
           <button>5</button>
           <button>6</button>
