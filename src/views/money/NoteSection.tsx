@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import React, { ChangeEventHandler } from 'react'
-import Input from 'components/Input';
+import styled from "styled-components";
+import React, { ChangeEventHandler } from "react";
+import Input from "components/Input";
 
 const Wrapper = styled.section`
   background: #f5f5f5;
@@ -11,23 +11,24 @@ const Wrapper = styled.section`
 type Props = {
   value: string;
   onChange: (value: string) => void;
-}
+};
 
-const NoteSection: React.FC<Props> = (props) =>{
+const NoteSection: React.FC<Props> = (props) => {
   const note = props.value;
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-      props.onChange(e.target.value)
-  }
+    props.onChange(e.target.value);
+  };
   return (
     <Wrapper>
-      <Input label="备注" 
-            type="text"
-            placeholder="点击写备注"
-            value={ note }
-            onChange={ onChange }>
-      </Input>
+      <Input
+        label="备注"
+        type="text"
+        placeholder="点击写备注"
+        value={note}
+        onChange={onChange}
+      ></Input>
     </Wrapper>
-  )
-}
+  );
+};
 
-export { NoteSection }
+export { NoteSection };

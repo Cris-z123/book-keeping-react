@@ -1,30 +1,30 @@
-import styled from 'styled-components';
-import React, { useState } from 'react';
+import styled from "styled-components";
+import React, { useState } from "react";
 
 const Wrapper = styled.section`
   font-size: 24px;
-  background:#99CCFF;
+  background: #99ccff;
   padding: 0 60px;
-  > ul{
-    display:flex;
+  > ul {
+    display: flex;
     > li {
       width: 50%;
       color: #ffffff;
-      text-align:center;
+      text-align: center;
       padding: 16px 0;
-      position:relative;
+      position: relative;
       &.selected {
         color: #004080;
-        &.selected::after{
-          content: '';
-          display:block;
+        &.selected::after {
+          content: "";
+          display: block;
           height: 4px;
-          background:#336699;
+          background: #336699;
           border-radius: 12px;
-          position:absolute;
-          bottom:0;
+          position: absolute;
+          bottom: 0;
           width: 50%;
-         left: 25%;
+          left: 25%;
         }
       }
     }
@@ -32,27 +32,31 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: 'IN' | 'OUT';
-  onChange: (value: 'IN' | 'OUT') => void;
-}
+  value: "IN" | "OUT";
+  onChange: (value: "IN" | "OUT") => void;
+};
 
 const CategorySection: React.FC<Props> = (props) => {
-  const categoryMap = { 'IN': '收入', 'OUT': '支出' };
-  const [ categoryList ] = useState<('IN' | 'OUT')[]>(['IN', 'OUT'])
+  const categoryMap = { IN: "收入", OUT: "支出" };
+  const [categoryList] = useState<("IN" | "OUT")[]>(["IN", "OUT"]);
   const category = props.value;
   return (
     <Wrapper>
-    <ul>
-      {categoryList.map(c => 
-        <li key={c}
-            className={category === c ? 'selected' : ''}
-            onClick={() => {props.onChange(c);}}>
-              {categoryMap[c]}
-            </li>
-      )}
-    </ul>
+      <ul>
+        {categoryList.map((c) => (
+          <li
+            key={c}
+            className={category === c ? "selected" : ""}
+            onClick={() => {
+              props.onChange(c);
+            }}
+          >
+            {categoryMap[c]}
+          </li>
+        ))}
+      </ul>
     </Wrapper>
-  )
-}
+  );
+};
 
-export {CategorySection};
+export { CategorySection };

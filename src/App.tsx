@@ -1,23 +1,23 @@
-import React from 'react';
-import Money from './views/Money';
-import Tags from './views/Tags';
-import { Tag } from './views/Tag';
-import Statistics from './views/Statistics';
-import NoMatch from './views/NoMatch';
+import React from "react";
+import Money from "./views/Money";
+import Tags from "./views/Tags";
+import { Tag } from "./views/Tag";
+import Statistics from "./views/Statistics";
+import NoMatch from "./views/NoMatch";
 import {
   HashRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
-
-
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags" exact> {/* 取消模糊匹配 */}
+        <Route path="/tags" exact>
+          {" "}
+          {/* 取消模糊匹配 */}
           <Tags />
         </Route>
         <Route path="/tags/:id" exact>
@@ -37,6 +37,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
