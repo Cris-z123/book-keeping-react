@@ -23,11 +23,11 @@ const NoteSection: React.FC<Props> = (props) =>{
       <Input label="备注" 
             type="text"
             placeholder="点击写备注"
-            value={note}
-            onChange={onChange}>
+            value={ note }
+            onChange={ onChange }>
       </Input>
     </Wrapper>
   )
 }
 
-export {NoteSection}
+export { NoteSection }

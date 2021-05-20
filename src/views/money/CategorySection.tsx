@@ -37,8 +37,8 @@ type Props = {
 }
 
 const CategorySection: React.FC<Props> = (props) => {
-  const categoryMap = {'IN': '收入', 'OUT': '支出'};
-  const [categoryList] = useState<('IN' | 'OUT')[]>(['IN', 'OUT'])
+  const categoryMap = { 'IN': '收入', 'OUT': '支出' };
+  const [ categoryList ] = useState<('IN' | 'OUT')[]>(['IN', 'OUT'])
   const category = props.value;
   return (
     <Wrapper>

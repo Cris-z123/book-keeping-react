@@ -2,10 +2,10 @@ import { useRecords } from 'hook/useRecords';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import {CategorySection} from './money/CategorySection';
-import {NoteSection} from './money/NoteSection';
-import {NumberPadSection} from './money/NumberPadSection';
-import {TagsSection} from './money/TagsSection';
+import { CategorySection } from './money/CategorySection';
+import { NoteSection } from './money/NoteSection';
+import { NumberPadSection } from './money/NumberPadSection';
+import { TagsSection } from './money/TagsSection';
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -23,7 +23,7 @@ const defaultFormData = {
 
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
-  const {addRecord} = useRecords();
+  const { addRecord } = useRecords();
 
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({

@@ -42,8 +42,8 @@ type Params = {
 }
 
 const Tag: React.FC = () => {
-    const {findTag, updateTag, deleteTag} = useTags();
-    let {id: idString} = useParams<Params>();
+    const { findTag, updateTag, deleteTag } = useTags();
+    let { id: idString } = useParams<Params>();
     const tag = findTag(parseInt(idString));
     const history = useHistory();
     const onClickBack = () => {
@@ -66,7 +66,7 @@ const Tag: React.FC = () => {
                         placeholder="标签名"
                         value={tag.name}
                         onChange={(e) => {
-                            updateTag(tag.id, {name:e.target.value})
+                            updateTag(tag.id, { name:e.target.value })
                         }} />
                 </InputWrapper>
                 <Center>

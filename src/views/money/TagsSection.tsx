@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import {useTags} from 'hook/useTags';
+import { useTags } from 'hook/useTags';
 import Icon from '../../components/Icons';
 
 const Wrapper = styled.section`
@@ -76,4 +76,4 @@ const TagsSection: React.FC<Props> = (props) => {
   );
 };
 
-export {TagsSection};
+export { TagsSection };
