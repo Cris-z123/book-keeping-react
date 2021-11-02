@@ -18,10 +18,10 @@ const Wrapper = styled.section`
       background: #ffffff;
       border-radius: 14px;
       display: inline-block;
-      padding: 10px;
+      padding: 6px;
       font-size: 12px;
       color: #004080;
-      margin: 4px 8px;
+      margin: 4px 10px;
       box-shadow: 1px 1px 1px 1px rgba(0, 0, 255, 0.2);
       &.selected {
         background: linear-gradient(90deg, #abdcff, #0396ff);
@@ -69,7 +69,7 @@ const TagsSection: React.FC<Props> = (props) => {
           >
             <TagWrapper>
               <Icon name={tag.iconName} />
-              <span>{tag.name}</span>
+              <span style={{ marginTop: "4px" }}>{tag.name}</span>
             </TagWrapper>
           </li>
         ))}
